@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<dom-module id="basic-counter" is="dom-bind">
+  <template>
+    [[value]]
+    <paper-button id="minus" on-click="decrement">-</paper-button>
+    <paper-button id="plus" on-click="increment">+</paper-button>
+  </template>
+  <script>
+    Polymer({
+      is: 'basic-counter',
+
+      properties: {
+        value: {
+          type: Number,
+          value: 0
+        }
+      },
+
+      increment () {
+        this.set('value', this.value + 1)
+      },
+
+      decrement () {
+        this.set('value', this.value - 1)
+      }
+    })
+  </script>
+</dom-module>

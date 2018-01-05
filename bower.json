@@ -1,0 +1,24 @@
+{
+  "name": "basic-counter",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "nope@nope.com"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "1.10.0",
+    "paper-button": "^2.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^6.4.1"
+  }
+}

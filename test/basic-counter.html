@@ -1,0 +1,65 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tests</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <script src="../../test-fixture/test-fixture-mocha.js"></script>
+
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+
+  <link rel="import" href="../basic-counter.html">
+
+</head>
+<body>
+  <dom-module id="bound-fixture">
+    <template>
+      <basic-counter></basic-counter>
+    </template>
+    <script>
+      window.addEventListener('WebComponentsReady', () => {
+        Polymer({
+          is: 'bound-fixture'
+        })
+      })
+    </script>
+  </dom-module>
+
+  <test-fixture id="bound">
+    <template>
+      <bound-fixture></bound-fixture>
+    </template>
+  </test-fixture>
+  <script>
+    suite('<basic-counter>', () => {
+      test('render without crashing', () => {
+        const component = fixture('bound').$$('basic-counter')
+        expect(component).not.to.equal(null)
+      })
+    
+      test('should increment the counter value', () => {
+        const expected = 1
+        const component = fixture('bound').$$('basic-counter')
+        const plusButton = component.$$('#plus')
+        plusButton.click()
+
+        expect(component.value).to.equal(expected)
+      })
+    
+      test('should decrement the counter value', () => {
+        const expected = -1
+        const component = fixture('bound').$$('basic-counter')
+        const minusButton = component.$$('#minus')
+        minusButton.click()
+
+        expect(component.value).to.equal(expected)
+      })
+    })
+  </script>
+</body>
+</html>

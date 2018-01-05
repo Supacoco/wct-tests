@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - '8'
+before_install:
+  - npm i bower
+install:
+  - npm i web-component-tester@6.4.1
+  - npm i https://github.com/Bubbit/wct-istanbub.git
+  - bower install --allow-root
+script:
+  - xvfb-run node_modules/.bin/wct
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
+
+
