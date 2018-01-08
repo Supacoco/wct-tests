@@ -17,7 +17,7 @@
 
 </head>
 <body>
-  <dom-module id="bound-fixture">
+  <!-- <dom-module id="bound-fixture">
     <template>
       <basic-counter></basic-counter>
     </template>
@@ -28,23 +28,24 @@
         })
       })
     </script>
-  </dom-module>
+  </dom-module> -->
 
   <test-fixture id="bound">
     <template>
-      <bound-fixture></bound-fixture>
+      <!-- <bound-fixture></bound-fixture> -->
+      <basic-counter></basic-counter>
     </template>
   </test-fixture>
   <script>
     suite('<basic-counter>', () => {
       test('render without crashing', () => {
-        const component = fixture('bound').$$('basic-counter')
+        const component = fixture('bound')
         expect(component).not.to.equal(null)
       })
     
       test('should increment the counter value', () => {
         const expected = 1
-        const component = fixture('bound').$$('basic-counter')
+        const component = fixture('bound')
         const plusButton = component.$$('#plus')
         plusButton.click()
 
@@ -53,7 +54,7 @@
     
       test('should decrement the counter value', () => {
         const expected = -1
-        const component = fixture('bound').$$('basic-counter')
+        const component = fixture('bound')
         const minusButton = component.$$('#minus')
         minusButton.click()
 
