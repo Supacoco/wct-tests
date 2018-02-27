@@ -12,6 +12,9 @@ module.exports = {
       reporters: ['text-summary', 'lcov'],
       include: [
         '**/*.html'
+      ],
+      exclude: [
+        '/test/'
       ]
       // thresholds: {
       //   global: {
